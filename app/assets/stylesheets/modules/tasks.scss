@@ -89,6 +89,10 @@
     height: 100%;
     padding: 10px;
     overflow: auto;
+    .new{
+      text-decoration: none;
+      color: white;
+    }
     &__ManyTasks{
       height: 80%;
       // overflow: auto;
