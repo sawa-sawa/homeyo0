@@ -1,7 +1,8 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
-  config.assets.js_compressor = :uglifier
+  # herokuデプロイ用修正
+  config.assets.js_compressor = Uglifier.new(harmony: true)
+  # config.assets.js_compressor = :uglifier
 
   # Code is not reloaded between requests.
   config.cache_classes = true
