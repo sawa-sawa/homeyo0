@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css?family=Abril+Fatface");
+
+@keyframes bang {
+  from {
+    transform: translate3d(0,0,0);
+    opacity: 1;
+  }
+}
+
+.Wrapper{
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+
+.DoneBtn {
+  // width: 240px;
+  // margin:150px auto 0;
+  // text-align: center;
+  // padding: 10px 0;
+  cursor: pointer;
+  position: relative;
+  i {
+    position: absolute;
+    display: block;
+    left: 50%;
+    top: 0;
+    width: 5px;
+    height: 10px;
+    background: red;
+    opacity: 0;
+  }
+}
+
+
+.Header{
+  height: 50px;
+  background-color: #343a40;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 10px;
+  border-bottom: 5px solid slategray;
+}
+
+.UserName{
+  .menu-bar{
+    text-decoration: none;
+    color: white;
+    border: white 1px solid;
+    padding: 5px;
+    border-radius: 2px;
+    margin-right: 10px;
+  }
+  .menu-bar:hover{
+    opacity: 0.5;
+  }
+}
+
+.UserPoints{
+  display: flex;
+  justify-content: flex-end;
+  color: white;
+  &__score{
+    margin: 0 5px;
+  }
+}
+
+.bg-purple{
+  background-color: #6f42c1;
+}
+
+
+.Title{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.TaskList{
+  display: flex;
+  height: calc(100vh - 90px);
+  &__TaskContainer{
+    background-color: rgb(241, 238, 238);
+    width: 60%;
+    height: 100%;
+    padding: 10px;
+    overflow: auto;
+    &__ManyTasks{
+      height: 80%;
+      // overflow: auto;
+      border-radius: 0 0 10px 10px;
+      // border: 1px solid gray;
+      padding: 0px 5px;
+      &__Doing{
+        display: none;
+      }
+    }
+  }
+}
+
+
+.TaskBody{
+  margin-top: 2px;
+  padding: 0 1rem;
+  border-top: 1px solid lightgray;
+  .TaskContent{
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.25rem;
+    .TaskObject{
+      width:  6rem;
+    }
+    .TaskDate{
+      width: 15rem;
+      padding-right: 2rem;
+      text-align: end;
+    }
+  }
+}
+
+.ActionContents{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.EditTodo{
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.SubTasks{
+  width: calc(100vw - 60%);
+}
+
+.DoneTasks{
+  background-color: coral;
+  height: 50%;
+  padding: 10px;
+}
+
+.OthersTasks{
+  background-color: #97cdf3;
+  height: 50%;
+  padding: 10px;
+  .yellbtn{
+    background-color: #00a5dd;
+    padding: 2px;
+    border-radius: 5px;
+  }
+  .celebrationbtn{
+    background-color: #ff006f;
+    padding: 2px;
+    border-radius: 5px;
+  }
+}
+
+.show{
+  display: block;
+}
+.Footer{
+  background-color: #343a40;
+  height: 40px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+    .Contents{
+      color: white;
+      padding-right: 10px;
+      .MyName{
+        text-decoration: none;
+        color: white;
+        align-items: center;
+      }
+    }
+}

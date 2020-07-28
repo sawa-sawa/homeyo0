@@ -1,0 +1,26 @@
+- target = task.target_id
+- person = task.person_id
+- action = task.action_id
+
+%li.TaskList__TaskContainer__ManyTasks__Contents.my-3.p-2.bg-white.rounded.shadow
+  .TaskTab.btn.btn-primary.btn-sm
+    タグ
+  .TaskBody
+    .TaskContent
+      .TaskObject
+        = Person.find(person).name
+        に
+      .TaskObject
+        = Target.find(target).name
+        を
+      .TaskObject
+        = Action.find(action).name
+        する!
+      .TaskDate
+        期限：
+        = task.due_date.strftime('%Y/%m/%d')
+      .DoneBtn
+        = button_to('Done!', task_path(task.id), method: :patch)
+    .Memo
+      メモ：
+      = task.memo

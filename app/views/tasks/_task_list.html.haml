@@ -1,0 +1,95 @@
+.Wrapper
+  = render 'menu'
+  = render 'header'
+  .TaskList#test
+    .TaskList__TaskContainer
+      .Title.d-flex.align-items-center.p-3.text-white-50.bg-purple.rounded.shadow-sm
+        .lh-100
+          %h5.mb-0.text-white.lh-100 ToDo list
+        .ShowMore.btn.btn-outline-light.btn-sm
+          =link_to new_task_path do
+            Create new task
+      %ul.Task.nav.nav-tabs
+        %li.DueDateTab.nav-item
+          = link_to "#", {class:"due nav-link active", data: {"turbolinks" => false}} do
+            今日中
+        %li.DueDateTab.nav-item
+          = link_to "#", {class:"due nav-link", data: {"turbolinks" => false}} do
+            今週中
+        %li.DueDateTab.nav-item
+          = link_to "#", {class:"due nav-link", data: {"turbolinks" => false}} do
+            今月中
+      .TaskList__TaskContainer__ManyTasks__Doing.show
+        %ul.TaskList__TaskContainer__ManyTasks__Contents
+          -# 今日のデータ
+          - @tasks.todo.today.each do |task|
+            = render "task_body", task: task
+
+      .TaskList__TaskContainer__ManyTasks__Doing
+        %ul.TaskList__TaskContainer__ManyTasks__Contents
+          -# 今週のデータ
+          - @tasks.todo.thisweek.each do |task|
+            = render "task_body", task: task
+
+      .TaskList__TaskContainer__ManyTasks__Doing
+        %ul.TaskList__TaskContainer__ManyTasks__Contents
+          -# 今月のデータ
+          - @tasks.todo.thismonth.each do |task|
+            = render "task_body", task: task
+    .SubTasks
+      .DoneTasks
+        .Title.d-flex.align-items-center.p-3.text-white-50.bg-purple.rounded.shadow-sm
+          .lh-100
+            %h6.mb-0.text-white.lh-100 Done list
+          .ShowMore.btn.btn-outline-light.btn-sm
+            Show more
+        .TaskList__TaskContainer__ManyTasks
+          - @finish_tasks.each do |task|
+            %ul.Task
+              %li.TaskList__TaskContainer__Contents.my-3.p-2.bg-white.rounded.shadow
+                - target = task.target_id
+                - person = task.person_id
+                - action = task.action_id
+                .ActionContents
+                  .Person
+                    = Person.find(person).name
+                    に
+                  .Target
+                    = Target.find(target).name
+                    を
+                  .Action
+                    = Action.find(action).name
+                    した！
+                  .Title__edit
+                    = link_to '#' do
+                      3ホメラレ
+      .OthersTasks
+        .Title.d-flex.align-items-center.p-3.text-white-50.bg-purple.rounded.shadow
+          .lh-100
+            %h6.mb-0.text-white.lh-100 Others Tasks
+          .ShowMore.btn.btn-outline-light.btn-sm
+            Change
+        .TaskList__TaskContainer__ManyTasks
+          - @other_tasks.completed.each do |task|
+            %ul.Task
+              %li.TaskList__TaskContainer__Contents.my-3.p-2.bg-white.rounded.shadow
+                - target = task.target_id
+                - person = task.person_id
+                - action = task.action_id
+                .ActionContents
+                  .Person
+                    = Person.find(person).name
+                    に
+                  .Target
+                    = Target.find(target).name
+                    を
+                  .Action
+                    = Action.find(action).name
+                    した！
+                  .Title__edit
+                    = link_to "#" do
+                      = image_tag 'megahorn_white.png', alt: 'yell', height: '35px', width: '35px', class: 'yellbtn'
+                    = link_to "#" do
+                      = image_tag 'confetti_white.png', alt: 'yell', height: '35px', width: '35px', class: 'celebrationbtn'
+  = render 'footer'
+

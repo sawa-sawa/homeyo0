@@ -1,0 +1,29 @@
+.Menu.hidden
+  %ul.MenuContents
+    %li.active
+      = link_to root_path, data: {"turbolinks" => false} do
+        メインページ
+    %li.active
+      = link_to new_task_path, data: {"turbolinks" => false} do
+        Todoを作る
+    %li.active
+      = link_to mypage_index_path, data: {"turbolinks" => false} do
+        Todo一覧
+    %li.active
+      = link_to "#" do
+        他ユーザーのTodoを見る
+    %li.active
+      = link_to "#" do
+        アクティビティ
+    %li.active
+      = link_to "#" do
+        ユーザー情報の編集
+    %li.active
+      = link_to "#" do
+        ガイド
+    %li.active
+      = link_to "#" do
+        お問い合わせ
+    %li.active
+      = link_to destroy_user_session_path, method: :delete, data: {"turbolinks" => false} do
+        ログアウト

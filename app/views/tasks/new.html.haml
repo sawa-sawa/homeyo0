@@ -1,0 +1,31 @@
+.Wrapper
+  = render 'menu'
+  = render 'header'
+  .NewTodoWrapper
+    = form_with(model: @task, local: true) do |form|
+      %h3
+        Todoを投稿する
+      .PostField
+        .PostContener
+          .TodoContents
+            どこで
+            = form.collection_select :place_id, Place.all, :id, :name
+          .TodoContents
+            誰に
+            = form.collection_select :person_id, Person.all, :id, :name
+          .TodoContents
+            何を
+            = form.collection_select :target_id, Target.all, :id, :name
+          .TodoContents
+            どうする
+            = form.collection_select :action_id, Action.all, :id, :name
+        .TodoDueDateTitle
+          期日
+        .TodoDueDate
+          = form.datetime_select :due_date, {}, class: Date
+        .TodoMemo
+          メモ
+          = form.text_area :memo, placeholder: "text", rows:"3", class:"Memo"
+          ※メモの内容は他のユーザーには見えません
+        = form.submit "SEND",class: "SendBtn"
+  = render 'footer'

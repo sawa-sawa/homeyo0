@@ -1,0 +1,68 @@
+= stylesheet_link_tag "/assets/fullcalendar.css"
+= javascript_include_tag "https://momentjs.com/downloads/moment.js"
+= javascript_include_tag "/assets/fullcalendar.js"
+= javascript_include_tag "/assets/locale-all.js"
+= javascript_include_tag "/assets/calendar.js"
+
+
+.Wrapper
+  = render 'tasks/menu'
+  = render 'tasks/header'
+  .Main
+    .UserResults
+      = current_user.name
+      さんの実績
+      .UserData
+        .UserData__Task
+          総タスク
+        .UserData__Task
+          完了タスク
+        .UserData__Task
+          褒めポイント
+    .TaskContainer
+      Todo一覧・検索
+      .TaskLists
+        .TaskLists__List
+          .Title
+            todotask
+          .Form
+            %input.SearchForm{type: 'text', placeholder: 'キーワードを入力してください'}
+            %input.Form__submit{type: 'submit', value: '検索'}  
+          .Body
+            %ul.Task
+              -# 今日のデータ
+              - @tasks.todo.each do |task|
+                = render "/tasks/task_body", task: task
+            
+        .TaskLists__List
+          .Title
+            donetask
+          .Form
+            %input.SearchForm{type: 'text', placeholder: 'キーワードを入力してください'}
+            %input.Form__submit{type: 'submit', value: '検索'}  
+          .Body
+            - @finish_tasks.each do |task|
+              %ul.Task
+                %li.TaskList__TaskContainer__Contents.my-3.p-2.bg-white.rounded.shadow
+                  - target = task.target_id
+                  - person = task.person_id
+                  - action = task.action_id
+                  .ActionContents
+                    .Person
+                      = Person.find(person).name
+                      に
+                    .Target
+                      = Target.find(target).name
+                      を
+                    .Action
+                      = Action.find(action).name
+                      した！
+                    .Title__edit
+                      = link_to '#' do
+                        3ホメラレ
+
+        .TaskLists__List
+          .Title
+            calendar
+          .MyCal{ id:"calendar"}
+  = render 'tasks/footer'
