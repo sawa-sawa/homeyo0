@@ -13,6 +13,7 @@ class TasksController < ApplicationController
   end
 
   def create
+    # binding.pry
     Task.create(task_params)
   end
 
@@ -29,7 +30,7 @@ class TasksController < ApplicationController
 
   private
   def task_params
-    params.require(:task).permit(:id, :place_id, :person_id, :target_id, :action_id, :due_date, :memo, :completed, :completed_at).merge(user_id: current_user.id)
+    params.require(:task).permit(:id, :place_id, :person_id, :target_id, :action_id, :due_date, :memo, :completed, :completed_at, { :tag_ids=> [] }).merge(user_id: current_user.id)
   end
 
 end

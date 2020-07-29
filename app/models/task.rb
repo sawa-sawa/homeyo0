@@ -1,6 +1,7 @@
 class Task < ApplicationRecord
   belongs_to :user
-  has_many :tags
+  has_many :task_tags
+  has_many :tags, through: :task_tags
   has_one :place, through: :task
   has_one :person, through: :task
   has_one :target

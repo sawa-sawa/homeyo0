@@ -3,13 +3,14 @@
 - action = task.action_id
 
 %li.TaskList__TaskContainer__ManyTasks__Contents.my-3.p-2.bg-white.rounded.shadow
-  .TaskTab.btn.btn-primary.btn-sm
-    タグ
+  - task.tags.each do |tag|
+    .TaskTab.btn.btn-primary.btn-sm
+      = tag.text
   .TaskBody
     .TaskContent
       .TaskObject
         = Person.find(person).name
-        に
+        
       .TaskObject
         = Target.find(target).name
         を

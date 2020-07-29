@@ -1,6 +1,6 @@
 $(function(){
   // タブのDOM要素を取得し、変数で定義
-  let select_tabs = $(".Due");
+  let tabs = $(".due");
 
   // クラスの切り替えをtabSwitch関数で定義
   function tabSwitch() {
@@ -19,6 +19,6 @@ $(function(){
   }
 
   // タブメニューの中でクリックイベントが発生した場所を探し、下で定義したtabSwitch関数を呼び出す
-  select_tabs.click(tabSwitch);
+  tabs.click(tabSwitch);
 
 });
