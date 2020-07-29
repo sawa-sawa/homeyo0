@@ -6,7 +6,7 @@
 
 ### 2. 本番環境
 - デプロイURL
--- http:
+-- https://homeyo0.herokuapp.com/
 - テストアカウント
 -- emali: test@test.com
 -- password: sample123
