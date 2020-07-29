@@ -16,7 +16,7 @@ class Task < ApplicationRecord
   }
 
   scope :today, -> {
-    where("due_date BETWEEN ? AND ?", '2010-01-01 00:00:00', Date.today.to_s)
+    where("due_date BETWEEN ? AND ?", '2010-01-01 00:00:00', Time.now.end_of_day)
   }
 
   scope :thisweek, -> {
