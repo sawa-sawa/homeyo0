@@ -25,17 +25,17 @@ class TasksController < ApplicationController
       task.update(completed: true , completed_at: Time.now)
       redirect_to tasks_path
     end
-
-  end
-
-  def show
-    
   end
 
   def edit
     @task = Task.find(params[:id])
   end
 
+  def destroy
+    task = Task.find(params[:id])
+    Task.find(params[:id]).tags.destroy_all
+    task.destroy
+  end
 
   private
   def task_params

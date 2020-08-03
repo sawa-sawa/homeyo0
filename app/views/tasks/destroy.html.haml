@@ -1,0 +1,9 @@
+.Wrapper
+  = render 'menu'
+  = render 'header'
+  .MsgFld
+    .success
+      %h3
+        削除が完了しました。
+      %a.btn{:href => root_path } 投稿一覧へ戻る
+  = render 'footer'
