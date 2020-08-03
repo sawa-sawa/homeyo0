@@ -1,0 +1,30 @@
+.PostField
+  .SelectTagTitle
+    タグ選択
+  .SelectTag
+    = collection_check_boxes( :task, :tag_ids, Tag.all, :id, :text) do |t|
+      = t.label { t.check_box + t.text}
+    -# = form.collection_select :tag_id, Tag.all, :id, :text, {}, {class: 'form-control'}
+  .PostContener
+    .TodoContents
+      どこで
+      = form.collection_select :place_id, Place.all, :id, :name, {}, {class: 'form-control'}
+    .TodoContents
+      誰に
+      = form.collection_select :person_id, Person.all, :id, :name, {}, {class: 'form-control'}
+    .TodoContents
+      何を
+      = form.collection_select :target_id, Target.all, :id, :name, {}, {class: 'form-control'}
+    .TodoContents
+      どうする
+      = form.collection_select :action_id, Action.all, :id, :name, {}, {class: 'form-control'}
+  .Due
+    .TodoDueDateTitle
+      期日
+    .TodoDueDate
+      != sprintf( form.datetime_select(:due_date, use_month_numbers: true, date_separator: '%s', datetime_separator: '%s', time_separator: '%s'), '年', '月', '日', '時') + '分'
+  .TodoMemo
+    メモ
+    = form.text_area :memo, placeholder: "text", rows:"3", class:"Memo"
+    ※メモの内容は他のユーザーには見えません
+  = form.submit "SEND",class: "SendBtn"
