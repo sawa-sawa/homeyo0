@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :events
   devise_for :users
   root "tasks#index"
-  resources :tasks, only: [:index, :new, :create, :update, :show]
+  resources :tasks, only: [:index, :new, :create, :edit, :update, :show]
   resources :mypage, only: [:index, :show]
   resources :events
   # root 'events#index'

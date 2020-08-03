@@ -3,9 +3,14 @@
 - action = task.action_id
 
 %li.TaskList__TaskContainer__ManyTasks__Contents.my-3.p-2.bg-white.rounded.shadow
-  - task.tags.each do |tag|
-    .TaskTab.btn.btn-primary.btn-sm
-      = tag.text
+  .UpperLine
+    .TodoTags
+      - task.tags.each do |tag|
+        .TaskTab.btn.btn-primary.btn-sm
+          = tag.text
+    .Edit
+      = link_to edit_task_path(task.id), {class:"EditLink"}, method: :get do
+        = icon('fas', 'edit', class: "EditBtn")
   .TaskBody
     .TaskContent
       .TaskObject

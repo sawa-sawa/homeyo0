@@ -106,6 +106,14 @@
   }
 }
 
+.UpperLine{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .Edit{
+    font-size: 1rem;
+  }
+}
 
 .TaskBody{
   margin-top: 2px;

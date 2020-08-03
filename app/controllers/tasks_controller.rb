@@ -19,12 +19,21 @@ class TasksController < ApplicationController
 
   def update
     task = Task.find(params[:id])
-    task.update(completed: true , completed_at: Time.now)
-    redirect_to tasks_path
+    if request.referrer.include?("edit")
+      task.update(task_params)
+    else
+      task.update(completed: true , completed_at: Time.now)
+      redirect_to tasks_path
+    end
+
   end
 
   def show
     
+  end
+
+  def edit
+    @task = Task.find(params[:id])
   end
 
 

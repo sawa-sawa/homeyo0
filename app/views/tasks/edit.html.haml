@@ -4,7 +4,7 @@
   .NewTodoWrapper
     .MainBody
       .MainTitle
-        Todoを投稿する
+        Todoを編集する
       = form_with(model: @task, local: true) do |form|
         = render partial: 'form', locals: {form: form}
   = render 'footer'
