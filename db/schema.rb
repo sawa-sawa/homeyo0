@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_27_054929) do
+ActiveRecord::Schema.define(version: 2020_08_04_181428) do
 
   create_table "actions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 2020_07_27_054929) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "completed", default: false, null: false
     t.timestamp "completed_at"
+    t.integer "home_score"
     t.index ["action_id"], name: "index_tasks_on_action_id"
     t.index ["person_id"], name: "index_tasks_on_person_id"
     t.index ["place_id"], name: "index_tasks_on_place_id"
